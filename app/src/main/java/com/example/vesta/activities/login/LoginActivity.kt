@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
 
         //Login listener
         binding.loginLoginBtn.setOnClickListener {
-            loginUser(binding)
+            loginUser()
         }
 
         //Create account listener
@@ -44,8 +44,8 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun loginUser(binding: ActivityLoginBinding) {
-        val email = binding.loginLoginEt.text.toString().trim { it <= ' '}
+    private fun loginUser() {
+        val email = binding.loginLoginEt.text.toString().trim { it <= ' '}.lowercase()
         val password = binding.loginPasswordEt.text.toString().trim { it <= ' '}
 
         if (email.isEmpty()) {
@@ -63,6 +63,25 @@ class LoginActivity : AppCompatActivity() {
                 .show()
             return
         }
+
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this,
+                        "Login feito com sucesso.\nRedirecionando para página inicial", Toast.LENGTH_SHORT
+                    )
+                        .show()
+
+                    intent = Intent(this, CondoActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this,
+                        "Algo deu errado, tente novamente!", Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
+            }
     }
 
     private fun getCondoPage() {

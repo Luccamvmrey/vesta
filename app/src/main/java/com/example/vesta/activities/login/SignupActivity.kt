@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.vesta.CondoActivity
+import com.example.vesta.activities.condo.CreateCondoActivity
 import com.example.vesta.data.user.addUserToDatabase
 import com.example.vesta.databinding.ActivitySignupBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -31,13 +31,13 @@ class SignupActivity : AppCompatActivity() {
 
         //Signup listener
         binding.signupCreateAccountBtn.setOnClickListener {
-            signupManager(binding, db)
+            signupManager()
         }
     }
 
-    private fun signupManager(binding: ActivitySignupBinding, db: FirebaseFirestore) {
+    private fun signupManager() {
         val name = binding.signupNameEt.text.toString().trim { it <= ' '}
-        val email = binding.signupLoginEt.text.toString().trim { it <= ' ' }
+        val email = binding.signupLoginEt.text.toString().trim { it <= ' ' }.lowercase()
         val password = binding.signupPasswordEt.text.toString().trim { it <= ' ' }
 
         if (name.isEmpty()) {
@@ -67,17 +67,13 @@ class SignupActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    addUserToDatabase(db, name, email, "manager") { userId ->
+                    addUserToDatabase(db, name, email, "manager") {
                         Toast.makeText(this,
                             "Usuário criado com sucesso.\nRedirecionando...", Toast.LENGTH_SHORT
                         )
                             .show()
 
-                        val bundle = Bundle()
-                        bundle.putString("userId", userId)
-
-                        intent = Intent(this, CondoActivity::class.java)
-                        intent.putExtras(bundle)
+                        intent = Intent(this, CreateCondoActivity::class.java)
                         startActivity(intent)
                         finish()
                     }

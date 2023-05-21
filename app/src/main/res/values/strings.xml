@@ -6,4 +6,7 @@
     <string name="criar_conta">Criar Conta</string>
     <string name="email">E-mail</string>
     <string name="name">Nome</string>
+    <string name="number_of_towers">Número de Torres</string>
+    <string name="tower_stories">Andares por Torre</string>
+    <string name="add">Adicionar</string>
 </resources>
