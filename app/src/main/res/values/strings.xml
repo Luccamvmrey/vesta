@@ -2,4 +2,8 @@
     <string name="app_name">Vesta</string>
     <string name="login">Login</string>
     <string name="password">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="criar_conta">Criar Conta</string>
+    <string name="email">E-mail</string>
+    <string name="name">Nome</string>
 </resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1099235958469",
+    "project_id": "vesta-c9c07",
+    "storage_bucket": "vesta-c9c07.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1099235958469:android:abe93c256b03affddd9aac",
+        "android_client_info": {
+          "package_name": "com.example.vesta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1099235958469-556n73jnfm4o102j074c0i6p06t2ujjk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD044ZsMy6f6Fd7eTgEyGPqUsDuBI2AX5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1099235958469-556n73jnfm4o102j074c0i6p06t2ujjk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
