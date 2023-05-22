@@ -2,7 +2,7 @@ package com.example.vesta.data.condo.models
 
 data class Condo(
     var towers: ArrayList<Tower>? = null,
-    val numberOfTowers: Int,
-    val numberOfStoriesPerTower: Int,
-    val managerId: String,
+    val numberOfTowers: Int? = null,
+    val numberOfStoriesPerTower: Int? = null,
+    val managerId: String? = null,
 )

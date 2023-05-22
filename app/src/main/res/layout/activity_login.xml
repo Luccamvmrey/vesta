@@ -12,7 +12,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="48dp"
             android:hint="@string/login"
             android:textColorHint="@color/dark_green"
@@ -23,6 +23,7 @@
                 android:id="@+id/login_login_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/dark_green"
                 android:inputType="text"
                 android:background="@android:color/transparent"/>
 
@@ -30,7 +31,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="54dp"
             android:hint="@string/password"
             android:textColorHint="@color/dark_green"
@@ -42,6 +43,7 @@
                 android:id="@+id/login_password_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/dark_green"
                 android:inputType="textPassword"
                 android:background="@android:color/transparent"/>
 
@@ -55,6 +57,7 @@
             android:layout_gravity="end"
             android:paddingHorizontal="32dp"
             android:text="@string/entrar"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textAllCaps="false"
             android:backgroundTint="@color/dark_green"/>

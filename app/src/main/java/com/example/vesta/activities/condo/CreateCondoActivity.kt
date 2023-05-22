@@ -4,9 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.vesta.CondoActivity
-import com.example.vesta.data.condo.createNewCondo
+import com.example.vesta.data.condo.addNewCondoToDatabase
 import com.example.vesta.databinding.ActivityCreateCondoBinding
+import com.example.vesta.domain.populateCondoWithTowersAndStories
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -25,6 +25,8 @@ class CreateCondoActivity : AppCompatActivity() {
         binding = ActivityCreateCondoBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        supportActionBar?.hide()
 
         auth = Firebase.auth
         db = Firebase.firestore
@@ -55,18 +57,15 @@ class CreateCondoActivity : AppCompatActivity() {
             return
         }
 
-        createNewCondo(db, numberOfTowers, numberOfStoriesPerTower) { condoId ->
+        addNewCondoToDatabase(db, numberOfTowers, numberOfStoriesPerTower) { condoId ->
             Toast.makeText(this,
                 "Condomínio criado com sucesso.\nRedirecionando para página inicial!", Toast.LENGTH_SHORT
             )
                 .show()
 
-            val bundle = Bundle()
-            bundle.putString("condoId", condoId)
+            populateCondoWithTowersAndStories(db, condoId)
 
             val intent = Intent(this, CondoActivity::class.java)
-            intent.putExtras(bundle)
-
             startActivity(intent)
             finish()
         }

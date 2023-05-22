@@ -26,6 +26,8 @@ class SignupActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        supportActionBar?.hide()
+
         auth = Firebase.auth
         db = Firebase.firestore
 
@@ -77,6 +79,7 @@ class SignupActivity : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     }
+
                 } else {
                     Toast.makeText(this,
                     "Falha no cadastro, tente novamente!", Toast.LENGTH_SHORT
